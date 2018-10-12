@@ -17,3 +17,18 @@ def publish(self):
 def __str__(self):
         return self.title
 
+class Persona(models.Model):
+        author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
+        title = models.CharField(max_length=200)
+        dni = models.CharField(max_length=200,default = '')
+        fechAlta = models.DateTimeField(
+                default=timezone.now)
+        fechNac = models.DateTimeField(
+                blank=True, null=True)
+
+def publish(self):
+        self.published_date = timezone.now()
+        self.save()
+
+def __str__(self):
+        return self.title
